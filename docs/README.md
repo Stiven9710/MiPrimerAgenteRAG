@@ -90,6 +90,76 @@ Bienvenido a la documentación completa del sistema RAG para Banco Caja Social.
 
 ---
 
+### 6. 🔄 [RAG_CON_DOCUMENTOS_TEMPORALES.md](RAG_CON_DOCUMENTOS_TEMPORALES.md) ⭐ NUEVO
+**Para**: Desarrolladores, Arquitectos  
+**Tiempo de lectura**: 25-30 minutos  
+**Descripción**: Guía completa para implementar consultas RAG con documentos temporales subidos en tiempo real.
+
+**Contenido**:
+- Casos de uso para documentos temporales
+- Modificaciones necesarias en workflows
+- Workflow detallado paso a paso
+- Ejemplos de código (Python, cURL)
+- Optimizaciones y mejores prácticas
+- Testing y validación
+
+**Cuándo leerlo**: Cuando necesites analizar documentos sin indexarlos permanentemente
+
+---
+
+### 7. 🔍 [COMPARACION_FLUJOS_RAG.md](COMPARACION_FLUJOS_RAG.md) ⭐ NUEVO
+**Para**: Todos  
+**Tiempo de lectura**: 10-15 minutos  
+**Descripción**: Comparación visual entre RAG tradicional y RAG con documentos temporales.
+
+**Contenido**:
+- Tabla comparativa de características
+- Diagramas de arquitectura
+- Casos de uso por flujo
+- Comparación de performance y costos
+- Matriz de decisión
+- Recomendaciones de implementación
+
+**Cuándo leerlo**: Para decidir qué enfoque usar en tu proyecto
+
+---
+
+### 8. 🎯 [FLUJO_DETALLADO_CON_RAG.md](FLUJO_DETALLADO_CON_RAG.md) ⭐ MUY IMPORTANTE
+**Para**: Desarrolladores, Arquitectos  
+**Tiempo de lectura**: 15-20 minutos  
+**Descripción**: Explicación DETALLADA de cómo y cuándo se consulta el RAG (documentos indexados).
+
+**Contenido**:
+- ⭐ Identificación del NODO 4 donde se busca en el RAG
+- Ejemplo completo: Refinar historia de usuario
+- Código real del nodo de búsqueda
+- Cómo se combinan documento subido + RAG
+- Diagramas visuales paso a paso
+- Otros ejemplos (contratos, facturas)
+
+**Cuándo leerlo**: ⚠️ ESENCIAL antes de implementar. Explica el flujo COMPLETO desde entrada hasta salida, mostrando exactamente dónde se usa la información indexada del RAG.
+
+---
+
+### 9. 📊 [RESUMEN_SISTEMA_COMPLETO.md](RESUMEN_SISTEMA_COMPLETO.md) ⭐ LEER PRIMERO
+**Para**: Todos  
+**Tiempo de lectura**: 20-25 minutos  
+**Descripción**: Resumen ejecutivo completo del sistema RAG avanzado.
+
+**Contenido**:
+- Resumen de todo lo creado
+- Arquitectura completa
+- Flujo de procesamiento actualizado
+- Ejemplos de uso
+- Casos de uso del banco
+- Sistema de feedback y métricas
+- Guía de implementación
+- ROI y costos
+
+**Cuándo leerlo**: PRIMERO, para entender todo el sistema de un vistazo
+
+---
+
 ## 🗺️ Flujo de Lectura Recomendado
 
 ### Si eres Desarrollador/Técnico:
@@ -132,6 +202,10 @@ Bienvenido a la documentación completa del sistema RAG para Banco Caja Social.
 | ARQUITECTURA_RAG.md | ~30 | ⭐⭐⭐ Alta | Técnicos |
 | CHECKLIST_IMPLEMENTACION.md | ~35 | ⭐⭐⭐ Alta | DevOps |
 | EJEMPLOS_USO.md | ~25 | ⭐⭐ Media | Developers |
+| RAG_CON_DOCUMENTOS_TEMPORALES.md ⭐ | ~25 | ⭐⭐⭐ Alta | Developers |
+| COMPARACION_FLUJOS_RAG.md ⭐ | ~12 | ⭐ Fácil | Todos |
+| FLUJO_DETALLADO_CON_RAG.md ⭐⭐⭐ | ~20 | ⭐⭐⭐ Alta | Developers/Arquitectos |
+| RESUMEN_SISTEMA_COMPLETO.md ⭐ | ~25 | ⭐⭐ Media | Todos |
 
 ---
 
@@ -147,6 +221,12 @@ Bienvenido a la documentación completa del sistema RAG para Banco Caja Social.
 - **¿Cuál es el ROI?** → RESUMEN_EJECUTIVO.md (ROI: 7,354% año 1)
 - **¿Cómo crear workflows?** → CHECKLIST_IMPLEMENTACION.md (Fase 3)
 - **¿Cómo integrar con mi app?** → EJEMPLOS_USO.md (sección Integración)
+- **¿Puedo subir documentos en consultas?** ⭐ → RAG_CON_DOCUMENTOS_TEMPORALES.md
+- **¿Qué flujo usar?** ⭐ → COMPARACION_FLUJOS_RAG.md (Matriz de decisión)
+- **¿Cómo analizar contratos nuevos?** ⭐ → RAG_CON_DOCUMENTOS_TEMPORALES.md (Casos de uso)
+- **¿Dónde se consulta el RAG (docs indexados)?** ⭐⭐⭐ → FLUJO_DETALLADO_CON_RAG.md (NODO 4)
+- **¿Cómo se combinan doc subido + RAG?** ⭐⭐⭐ → FLUJO_DETALLADO_CON_RAG.md (NODO 5)
+- **¿Cómo refinar historia de usuario con RAG?** ⭐ → FLUJO_DETALLADO_CON_RAG.md (Ejemplo completo)
 
 ---
 

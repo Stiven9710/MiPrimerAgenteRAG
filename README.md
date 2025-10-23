@@ -1,15 +1,17 @@
-# 🤖 Sistema RAG - Banco Caja Social
+# 🤖 Sistema RAG Avanzado - Banco Caja Social
 
 Sistema de Retrieval-Augmented Generation (RAG) implementado con n8n y Azure para el Banco Caja Social.
 
 ## 📋 Descripción
 
-Este proyecto implementa un sistema RAG completo que permite:
-- ✅ **Ingesta de documentos**: Procesar PDFs, DOCX, y otros formatos
-- ✅ **Consultas inteligentes**: Responder preguntas basadas en documentos corporativos
+Este proyecto implementa un **sistema RAG avanzado** con capacidades multimodales que permite:
+- ✅ **Ingesta de documentos**: Procesar PDFs, DOCX, imágenes y otros formatos
+- ✅ **Consultas multimodales**: Texto + documentos temporales + imágenes en una misma consulta
 - ✅ **Gestión de documentos**: Actualizar y eliminar documentos del índice
 - ✅ **Búsqueda semántica**: Utilizar embeddings y búsqueda vectorial
 - ✅ **Respuestas contextuales**: Generar respuestas con GPT-4 basadas en contexto relevante
+- ⭐ **Sistema de feedback**: Validación y mejora automática de respuestas
+- 📊 **Métricas avanzadas**: Captura automática de calidad, costos y tiempos
 
 ## 🏗️ Arquitectura
 
@@ -44,16 +46,23 @@ RAG Agent/
 ├── 📂 docs/                          # 📚 Documentación completa
 │   ├── README.md                     # Índice de documentación
 │   ├── INICIO_RAPIDO.md              # ⚡ Guía de inicio rápido
+│   ├── RESUMEN_SISTEMA_COMPLETO.md   # 📊 LEER PRIMERO - Overview completo
 │   ├── ARQUITECTURA_RAG.md           # 🏗️ Arquitectura técnica detallada
 │   ├── CHECKLIST_IMPLEMENTACION.md   # ✅ Pasos de implementación
 │   ├── EJEMPLOS_USO.md               # 💻 Ejemplos de código
-│   └── RESUMEN_EJECUTIVO.md          # 📊 Presentación para stakeholders
+│   ├── RESUMEN_EJECUTIVO.md          # 📊 Presentación para stakeholders
+│   ├── RAG_CON_DOCUMENTOS_TEMPORALES.md  # ⭐ RAG con docs temporales
+│   ├── COMPARACION_FLUJOS_RAG.md     # 🔍 Comparativa de flujos
+│   ├── FLUJO_DETALLADO_CON_RAG.md    # ⭐⭐⭐ Flujo detallado NODO 4
+│   └── RAG_AVANZADO_CON_FEEDBACK.md  # 🎯 Sistema avanzado con feedback
 │
 ├── 📂 scripts/                       # 🐍 Scripts Python
 │   ├── README.md                     # Guía de scripts
 │   ├── n8n_manager.py                # Cliente para gestionar n8n
 │   ├── setup_rag_workflows.py        # Crear workflows automáticamente
-│   └── test_connection.py            # Pruebas del sistema
+│   ├── test_connection.py            # Pruebas del sistema
+│   ├── rag_advanced_client.py        # ⭐ Cliente RAG avanzado multimodal
+│   └── test_rag_with_document.py     # Pruebas con documentos temporales
 │
 ├── 📂 config/                        # ⚙️ Configuración
 │   ├── README.md                     # Guía de configuración
@@ -129,11 +138,19 @@ curl -X POST http://159.203.149.247:5678/webhook/rag/query \
 
 ## 📚 Documentación Detallada
 
+### 🌟 Documentos Principales
+- **[RESUMEN_SISTEMA_COMPLETO.md](docs/RESUMEN_SISTEMA_COMPLETO.md)**: 📊 **LEER PRIMERO** - Resumen ejecutivo de todo el sistema
 - **[INICIO_RAPIDO.md](docs/INICIO_RAPIDO.md)**: ⚡ Guía rápida para comenzar
 - **[ARQUITECTURA_RAG.md](docs/ARQUITECTURA_RAG.md)**: 🏗️ Arquitectura completa, componentes de Azure, flujos de trabajo
 - **[CHECKLIST_IMPLEMENTACION.md](docs/CHECKLIST_IMPLEMENTACION.md)**: ✅ Guía paso a paso para implementar el sistema
 - **[EJEMPLOS_USO.md](docs/EJEMPLOS_USO.md)**: 💻 Ejemplos de código en Python, JavaScript, cURL, React
 - **[RESUMEN_EJECUTIVO.md](docs/RESUMEN_EJECUTIVO.md)**: 📊 Presentación ejecutiva con ROI y casos de uso
+
+### ⭐ Sistema RAG Avanzado (Nuevos)
+- **[FLUJO_DETALLADO_CON_RAG.md](docs/FLUJO_DETALLADO_CON_RAG.md)**: ⭐⭐⭐ **ESENCIAL** - Dónde y cómo se consulta el RAG
+- **[RAG_AVANZADO_CON_FEEDBACK.md](docs/RAG_AVANZADO_CON_FEEDBACK.md)**: 🎯 Sistema completo con multimodalidad y feedback
+- **[RAG_CON_DOCUMENTOS_TEMPORALES.md](docs/RAG_CON_DOCUMENTOS_TEMPORALES.md)**: 📄 Consultas con documentos sin indexar
+- **[COMPARACION_FLUJOS_RAG.md](docs/COMPARACION_FLUJOS_RAG.md)**: 🔍 Comparativa entre flujos tradicionales y avanzados
 
 ## 🔧 Gestión de Workflows
 
@@ -161,17 +178,26 @@ manager.export_workflow("workflow_id", "workflows/mi_workflow.json")
 
 ## 🎯 Casos de Uso
 
-### 1. Chat Corporativo
+### 1. 💬 Chat Corporativo Inteligente
 Integra el RAG en un chatbot para que los empleados consulten políticas, manuales y procedimientos.
 
-### 2. Atención al Cliente
+### 2. 📞 Atención al Cliente Avanzada
 Proporciona a los agentes respuestas rápidas basadas en la base de conocimientos.
 
-### 3. Búsqueda Inteligente
-Permite a los usuarios buscar en documentos corporativos usando lenguaje natural.
+### 3. 🔍 Análisis de Documentos Temporales
+Analiza contratos, facturas o propuestas sin indexarlas permanentemente.
+- **Ejemplo**: "¿Este contrato cumple con nuestras políticas?" + adjuntar PDF
 
-### 4. Automatización de Respuestas
-Responde automáticamente a preguntas frecuentes basándose en documentación oficial.
+### 4. 📝 Refinamiento con Plantillas
+Mejora documentos usando plantillas y ejemplos del RAG.
+- **Ejemplo**: "Ayúdame a refinar esta historia de usuario" + adjuntar documento
+
+### 5. 🖼️ Análisis Multimodal
+Procesa imágenes, documentos escaneados y PDFs con tablas.
+- **Ejemplo**: Verificar facturas con imágenes + datos del RAG
+
+### 6. 🤖 Automatización con Feedback
+Sistema que aprende y mejora automáticamente según feedback del usuario.
 
 ## 💰 Costos Estimados (Azure)
 
@@ -207,12 +233,21 @@ Este proyecto es interno del Banco Caja Social. Para contribuir:
 
 ## 📝 Notas de Versión
 
+### v2.0.0 (2025-10-23) ⭐ ACTUAL
+- ✅ **Sistema RAG Avanzado** con multimodalidad
+- ✅ **Consultas con documentos temporales** (sin indexación permanente)
+- ✅ **Soporte de imágenes** con GPT-4 Vision
+- ✅ **Sistema de feedback** automático
+- ✅ **Métricas avanzadas** (calidad, costos, tiempos)
+- ✅ **Complementación automática** de respuestas valiosas
+- ✅ **Cliente Python avanzado** (`rag_advanced_client.py`)
+- ✅ **Documentación completa** del flujo detallado
+
 ### v1.0.0 (2025-10-21)
 - ✅ Arquitectura inicial implementada
 - ✅ Workflows básicos de ingesta, consulta y eliminación
 - ✅ Integración con Azure OpenAI y AI Search
 - ✅ Scripts de gestión y ejemplos de uso
-- 🔄 Pendiente: Implementar autenticación y rate limiting
 
 ## 📄 Licencia
 

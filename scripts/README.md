@@ -99,10 +99,51 @@ python3 scripts/setup_rag_workflows.py
 ### 3. 🧪 `test_connection.py`
 **Descripción**: Script de diagnóstico para verificar el estado del sistema completo.
 
-**Pruebas que realiza**:
-1. ✅ Conexión con API de n8n
-2. ✅ Existencia de webhook de ingesta
-3. ✅ Existencia de webhook de consultas
+---
+
+### 4. 🚀 `rag_advanced_client.py` ⭐ NUEVO
+**Descripción**: Cliente avanzado para RAG con soporte multimodal y sistema de feedback
+
+**Funcionalidades**:
+- ✅ Consultas con múltiples tipos de entrada (texto, docs, imágenes)
+- ✅ Sistema de feedback interactivo
+- ✅ Métricas y análisis de calidad
+- ✅ Complementación automática de respuestas valiosas
+- ✅ Modo batch para múltiples consultas
+
+**Uso**:
+```python
+from scripts.rag_advanced_client import AdvancedRAGClient
+
+client = AdvancedRAGClient()
+
+# Consulta multimodal
+result = client.query(
+    question="¿Este contrato es válido?",
+    documents=["contrato.pdf"],
+    images=["firma.jpg"],
+    use_indexed=True
+)
+
+# Enviar feedback
+client.send_feedback(rating=5, comment="Excelente")
+```
+
+**Ejecutar**:
+```bash
+# Ver ayuda
+python3 scripts/rag_advanced_client.py --help
+
+# Ejemplos
+python3 scripts/rag_advanced_client.py --example1  # Solo texto
+python3 scripts/rag_advanced_client.py --example3  # Multimodal
+python3 scripts/rag_advanced_client.py --example4  # Interactivo
+```
+
+---
+
+### 5. 🧪 `test_rag_with_document.py`
+**Descripción**: Script para probar RAG con documentos temporales
 4. ✅ Configuración de variables Azure
 
 **Uso**:

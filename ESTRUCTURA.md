@@ -17,16 +17,23 @@ RAG Agent/
 ├── 📂 docs/                          # 📚 Documentación
 │   ├── README.md                     # Índice de documentación
 │   ├── INICIO_RAPIDO.md              # ⚡ Guía de inicio rápido
+│   ├── RESUMEN_SISTEMA_COMPLETO.md   # 📊 LEER PRIMERO - Overview completo
 │   ├── ARQUITECTURA_RAG.md           # 🏗️ Arquitectura técnica
 │   ├── CHECKLIST_IMPLEMENTACION.md   # ✅ Pasos de implementación
 │   ├── EJEMPLOS_USO.md               # 💻 Ejemplos de código
-│   └── RESUMEN_EJECUTIVO.md          # 📊 Presentación ejecutiva
+│   ├── RESUMEN_EJECUTIVO.md          # 📊 Presentación ejecutiva
+│   ├── RAG_CON_DOCUMENTOS_TEMPORALES.md  # ⭐ RAG con docs temporales
+│   ├── COMPARACION_FLUJOS_RAG.md     # 🔍 Comparativa de flujos
+│   ├── FLUJO_DETALLADO_CON_RAG.md    # ⭐⭐⭐ Flujo detallado NODO 4
+│   └── RAG_AVANZADO_CON_FEEDBACK.md  # 🎯 Sistema avanzado con feedback
 │
 ├── 📂 scripts/                       # 🐍 Scripts Python
 │   ├── README.md                     # Guía de scripts
 │   ├── n8n_manager.py                # Cliente para gestionar n8n
 │   ├── setup_rag_workflows.py        # Crear workflows automáticamente
-│   └── test_connection.py            # Pruebas del sistema
+│   ├── test_connection.py            # Pruebas del sistema
+│   ├── rag_advanced_client.py        # ⭐ Cliente RAG avanzado multimodal
+│   └── test_rag_with_document.py     # Pruebas con documentos temporales
 │
 └── 📂 workflows/                     # 🔄 Workflows de n8n
     └── README.md                     # Guía de workflows
@@ -77,11 +84,16 @@ export $(cat .env | xargs)
 | Archivo | Descripción | Páginas | Audiencia | Prioridad |
 |---------|-------------|---------|-----------|-----------|
 | `README.md` | Índice de documentación | 1 | Todos | ⭐⭐⭐ |
+| `RESUMEN_SISTEMA_COMPLETO.md` ⭐ | Overview completo sistema | ~25 | Todos | ⭐⭐⭐ |
 | `INICIO_RAPIDO.md` | Guía de inicio rápido | ~10 | Todos | ⭐⭐⭐ |
 | `RESUMEN_EJECUTIVO.md` | Presentación ejecutiva, ROI | ~20 | Management | ⭐⭐⭐ |
 | `ARQUITECTURA_RAG.md` | Arquitectura técnica detallada | ~30 | Técnicos | ⭐⭐ |
 | `CHECKLIST_IMPLEMENTACION.md` | Pasos de implementación | ~35 | DevOps | ⭐⭐ |
 | `EJEMPLOS_USO.md` | Ejemplos de código | ~25 | Developers | ⭐ |
+| `RAG_CON_DOCUMENTOS_TEMPORALES.md` ⭐ | RAG con docs temporales | ~25 | Developers | ⭐⭐ |
+| `COMPARACION_FLUJOS_RAG.md` ⭐ | Comparativa flujos RAG | ~12 | Todos | ⭐⭐ |
+| `FLUJO_DETALLADO_CON_RAG.md` ⭐⭐⭐ | Flujo detallado NODO 4 | ~27 | Developers | ⭐⭐⭐ |
+| `RAG_AVANZADO_CON_FEEDBACK.md` ⭐ | Sistema con feedback | ~32 | Developers | ⭐⭐ |
 
 **Flujo de lectura recomendado**:
 ```
@@ -95,9 +107,9 @@ export $(cat .env | xargs)
 ```
 
 **Métricas**:
-- Total de documentación: ~120 páginas
-- Tiempo de lectura completa: ~2-3 horas
-- Cobertura: 100% del sistema
+- Total de documentación: ~220 páginas
+- Tiempo de lectura completa: ~4-5 horas
+- Cobertura: 100% del sistema (básico + avanzado)
 
 ---
 
@@ -107,10 +119,12 @@ export $(cat .env | xargs)
 
 | Script | Líneas | Descripción | Uso |
 |--------|--------|-------------|-----|
-| `README.md` | ~250 | Guía de scripts | Referencia |
+| `README.md` | ~344 | Guía de scripts | Referencia |
 | `n8n_manager.py` | ~430 | Cliente completo de n8n API | Gestión workflows |
 | `setup_rag_workflows.py` | ~425 | Crear workflows RAG automáticamente | Setup inicial |
 | `test_connection.py` | ~260 | Diagnóstico del sistema | Testing |
+| `rag_advanced_client.py` ⭐ | ~450 | Cliente RAG avanzado multimodal | Consultas avanzadas |
+| `test_rag_with_document.py` ⭐ | ~180 | Pruebas con docs temporales | Testing avanzado |
 
 **Funcionalidades por script**:
 
@@ -133,6 +147,17 @@ export $(cat .env | xargs)
 - ✅ Test de webhooks
 - ✅ Test de configuración Azure
 - ✅ Reporte completo
+
+#### `rag_advanced_client.py` ⭐
+- ✅ Consultas multimodales (texto + docs + imágenes)
+- ✅ Sistema de feedback interactivo
+- ✅ Métricas y análisis
+- ✅ Complementación automática
+
+#### `test_rag_with_document.py` ⭐
+- ✅ Test con documentos temporales
+- ✅ Validación de multimodalidad
+- ✅ Verificación de feedback
 
 **Uso rápido**:
 ```bash
@@ -205,25 +230,26 @@ m.import_workflow('workflows/backup.json')
 
 ### Archivos Creados
 ```
-Total de archivos:    17
-Archivos .md:         11 (documentación)
-Archivos .py:         3  (scripts)
+Total de archivos:    23
+Archivos .md:         16 (documentación)
+Archivos .py:         5  (scripts)
 Archivos config:      2  (.env, requirements.txt)
 Archivos meta:        1  (.gitignore)
 ```
 
 ### Líneas de Código
 ```
-Scripts Python:       ~1,115 líneas
-Documentación:        ~2,500 líneas
-Total:                ~3,615 líneas
+Scripts Python:       ~1,745 líneas
+Documentación:        ~5,500 líneas
+Total:                ~7,245 líneas
 ```
 
 ### Documentación
 ```
-Páginas totales:      ~120 páginas
-Tiempo lectura:       2-3 horas
-Ejemplos de código:   20+ ejemplos
+Páginas totales:      ~220 páginas
+Tiempo lectura:       4-5 horas (completa)
+Ejemplos de código:   35+ ejemplos
+Diagramas:            15+ diagramas
 ```
 
 ---
@@ -300,6 +326,7 @@ Ejemplos de código:   20+ ejemplos
 | Necesito saber... | Archivo | Sección |
 |-------------------|---------|---------|
 | ¿Cómo empezar? | `docs/INICIO_RAPIDO.md` | Inicio |
+| ¿Visión completa? ⭐ | `docs/RESUMEN_SISTEMA_COMPLETO.md` | Overview completo |
 | ¿Cuánto cuesta? | `docs/RESUMEN_EJECUTIVO.md` | Costos vs Beneficios |
 | ¿Qué servicios Azure? | `docs/ARQUITECTURA_RAG.md` | Componentes Azure |
 | ¿Cómo configurar? | `config/README.md` | Configuración |
@@ -308,6 +335,10 @@ Ejemplos de código:   20+ ejemplos
 | ¿Cuál es el ROI? | `docs/RESUMEN_EJECUTIVO.md` | ROI: 7,354% |
 | ¿Cómo crear workflows? | `scripts/README.md` | setup_rag_workflows.py |
 | ¿Cómo exportar workflows? | `workflows/README.md` | Exportar |
+| ¿Dónde se consulta el RAG? ⭐⭐⭐ | `docs/FLUJO_DETALLADO_CON_RAG.md` | NODO 4 |
+| ¿Puedo subir documentos? ⭐ | `docs/RAG_CON_DOCUMENTOS_TEMPORALES.md` | Casos de uso |
+| ¿Qué flujo usar? ⭐ | `docs/COMPARACION_FLUJOS_RAG.md` | Matriz decisión |
+| ¿Cómo usar feedback? ⭐ | `docs/RAG_AVANZADO_CON_FEEDBACK.md` | Sistema feedback |
 
 ---
 
@@ -380,8 +411,8 @@ Al agregar archivos al proyecto:
 
 ---
 
-**Última actualización**: 21 de Octubre, 2025  
-**Versión**: 1.0.0  
-**Total de archivos**: 17  
-**Estado**: ✅ Proyecto organizado y documentado
+**Última actualización**: 23 de Octubre, 2025  
+**Versión**: 2.0.0  
+**Total de archivos**: 23  
+**Estado**: ✅ Sistema RAG Avanzado completo y documentado
 
